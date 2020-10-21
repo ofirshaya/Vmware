@@ -11,7 +11,7 @@ ou can see the node by typing:
 kubectl get nodes
 
 Create a file named deployment.yaml:
-
+---
 apiVersion: v1
 kind: Service
 metadata:
@@ -24,7 +24,7 @@ spec:
     port: 80
     targetPort: 5000
   type: http
-
+---
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -46,7 +46,7 @@ spec:
         imagePullPolicy: Never
         ports:
         - containerPort: 5000
-
+---
 This YAML file is the instructions to Kubernetes for what you want running. It is telling Kubernetes the following:
 
 You want an http service exposing port 80
