@@ -1,9 +1,19 @@
 # Vmware
-how to run the python app on k8s?
+## how to run the python app on k8s?
 first we need to use docker to Containerize the application using docker
-step 1: create Dockerfile
-step 2: create the image with docker build and check that it exits with docker image ls
-step 3: verify its working with docker run
+create Dockerfile
+create the image with 
+```
+docker build -f Dockerfile -t python:latest
+```
+and check that it exits with
+```
+docker image ls
+```
+verify its working with
+```
+docker run -p 5001:5000 python
+```
 check k8s version with "kubectl version"
 If you don’t see a reply with a Client and Server version, you’ll need to install and configure it.
 ou can see the node by typing:
