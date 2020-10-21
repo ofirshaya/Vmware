@@ -7,11 +7,11 @@ step 3: verify its working with docker run
 check k8s version with "kubectl version"
 If you don’t see a reply with a Client and Server version, you’ll need to install and configure it.
 ou can see the node by typing:
-
+```
 kubectl get nodes
-
+```
 Create a file named deployment.yaml:
----
+```
 apiVersion: v1
 kind: Service
 metadata:
@@ -24,8 +24,7 @@ spec:
     port: 80
     targetPort: 5000
   type: http
----
----
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -46,7 +45,7 @@ spec:
         imagePullPolicy: Never
         ports:
         - containerPort: 5000
----
+```
 This YAML file is the instructions to Kubernetes for what you want running. It is telling Kubernetes the following:
 
 You want an http service exposing port 80
@@ -56,5 +55,6 @@ Use kubectl to send the YAML file to Kubernetes by running the following command
 
 kubectl apply -f deployment.yaml
 You can see the pods are running if you execute the following command:
-
+```
 kubectl get pods
+```
